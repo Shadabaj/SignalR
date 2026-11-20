@@ -1,0 +1,19 @@
+SignalRSample/appsettings.json
+  s_a4168fc0d13d43::t_8f9a486f5cb8a5 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f91bca39c7012ed8b0814eac348722c8c4591169",
+  "prompts": {},
+  "sessions": {
+    "s_a4168fc0d13d43": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "662e6aee-a924-4b5b-85df-2668d4f9cc57",
+        "model": "auto-smart"
+      },
+      "human_author": "shadabaj <shadabansari.iyc@gmail.com>"
+    }
+  }
+}
