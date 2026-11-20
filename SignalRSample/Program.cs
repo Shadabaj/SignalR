@@ -15,10 +15,15 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-//var connectionAzureSignalR = "Endpoint=https://dotnetmastery.service.signalr.net;AccessKey=m9Enl0s8dqQGU6l0M0SGDqjwMttKvqN84hX+acKepmU=;Version=1.0;";
-
-//builder.Services.AddSignalR().AddAzureSignalR(connectionAzureSignalR);
-builder.Services.AddSignalR();
+var azureSignalRConnection = builder.Configuration["Azure:SignalR:ConnectionString"];
+if (!string.IsNullOrWhiteSpace(azureSignalRConnection))
+{
+    builder.Services.AddSignalR().AddAzureSignalR(azureSignalRConnection);
+}
+else
+{
+    builder.Services.AddSignalR();
+}
 
 var app = builder.Build();
 
@@ -47,7 +52,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 app.MapHub<UserHub>("/hubs/userCount");
-app.MapHub<DeathlyHallowsHub>("hubs/deathyhallows");
+app.MapHub<DeathlyHallowsHub>("/hubs/deathyhallows");
 app.MapHub<HouseGroupHub>("/hubs/houseGroup");
 app.MapHub<NotificationHub>("/hubs/notification");
 app.MapHub<BasicChatHub>("/hubs/basicchat");

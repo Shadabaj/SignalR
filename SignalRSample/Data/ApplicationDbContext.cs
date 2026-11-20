@@ -11,8 +11,8 @@ namespace SignalRSample.Data
         {
         }
 
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<Order> Orders { get; set; } = null!;
 
-        public DbSet<ChatRoom> ChatRoom { get; set; }
+        public DbSet<ChatRoom> ChatRoom { get; set; } = null!;
     }
 }

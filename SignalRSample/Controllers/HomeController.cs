@@ -94,7 +94,7 @@ namespace SignalRSample.Controllers
 
 
         [ActionName("Order")]
-        public async Task<IActionResult> Order()
+        public IActionResult Order()
         {
             string[] name = { "Bhrugen", "Ben", "Jess", "Laura", "Ron" };
             string[] itemName = { "Food1", "Food2", "Food3", "Food4", "Food5" };
@@ -124,7 +124,7 @@ namespace SignalRSample.Controllers
             return RedirectToAction(nameof(Order));
         }
         [ActionName("OrderList")]
-        public async Task<IActionResult> OrderList()
+        public IActionResult OrderList()
         {
             return View();
         }

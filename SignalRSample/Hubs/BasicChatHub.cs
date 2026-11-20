@@ -19,7 +19,7 @@ namespace SignalRSample.Hubs
         [Authorize]
         public async Task SendMessageToReceiver(string sender, string receiver, string message)
         {
-            var userId = _db.Users.FirstOrDefault(u => u.Email.ToLower() == receiver.ToLower()).Id;
+            var userId = _db.Users.FirstOrDefault(u => u.Email != null && u.Email.ToLower() == receiver.ToLower())?.Id;
 
             if (!string.IsNullOrEmpty(userId))
             {
